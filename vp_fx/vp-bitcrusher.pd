@@ -1,0 +1,71 @@
+#N canvas 587 63 1208 846 10;
+#X declare -path ../vp-base;
+#X declare -path ../vp-modules;
+#X obj 131 23 cnv 5 5 5 empty empty BITCRUSHER 0 0 0 12 -262144 -66577
+0;
+#X obj 151 34 cnv 5 5 5 empty empty htaudio.de 0 0 0 8 -262144 -1 0
+;
+#X obj 20 196 inlet~;
+#X obj 20 746 outlet~;
+#X obj 15 22 cnv 5 5 5 empty empty IN 0 0 0 8 -262144 -1 0;
+#X obj 16 144 cnv 5 5 5 empty empty OUT 0 0 0 8 -262144 -1 0;
+#X text 76 746 AUDIO OUT;
+#X text 20 168 DSP CIRCUIT;
+#X text 971 39 DO NOT DELETE OR CHANGE THESE PARTS;
+#X text 765 109 Include paths;
+#X text 324 27 Input Parameter Processing;
+#X text 67 195 AUDIO IN;
+#X obj 25 44 hsl 128 15 0 1 0 0 \$0-value-drive-s \$0-value-drive-r
+DRIVE 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 25 59 hsl 128 15 0 1 0 0 \$0-value-smprt-s \$0-value-smprt-r
+SAMPLE_RATE 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 25 89 hsl 128 15 0 1 0 0 \$0-value-drywet-s \$0-value-drywet-s
+DRY_WET_MIX 10 8 0 10 -262144 -1 -1 0 1;
+#X floatatom 325 111 5 0 0 0 - - -, f 5;
+#X floatatom 468 111 5 0 0 0 - - -, f 5;
+#X floatatom 684 111 5 0 0 0 - - -, f 5;
+#X floatatom 468 201 5 0 0 0 - - -, f 5;
+#X obj 325 89 r \$0-value-drive-s;
+#X obj 684 89 r \$0-value-redux-s;
+#X obj 468 179 r \$0-value-drywet-s;
+#X floatatom 684 201 5 0 0 0 - - -, f 5;
+#X obj 684 179 r \$0-value-harshalize-s;
+#X text 684 153 HARSHALIZE;
+#X text 470 155 DRY WET MIX;
+#X text 687 64 REDUX;
+#X text 469 65 SAMPLE RATE;
+#X obj 468 89 r \$0-value-smprt-s;
+#X text 324 63 DRIVE;
+#X obj 25 74 hsl 128 15 1 0 0 0 \$0-value-redux-s \$0-value-redux-r
+REDUX 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 22 112 tgl 15 0 \$0-value-harshalize-s \$0-value-harshalize-r
+HARSHALIZER 20 7 0 10 -262144 -1 -1 0 1;
+#X obj 325 130 f 1;
+#X obj 20 258 *~;
+#X obj 20 285 vp-smpredux;
+#X obj 684 221 s vp-smpredux-value-crunch-r;
+#X obj 243 463 vp-5bit-crush;
+#X obj 468 130 s vp-smpredux-value-samplerate-r;
+#X obj 684 130 s vp-5bitcrush-value-reduxamt-r;
+#X obj 20 629 vp-drywetmix;
+#X obj 468 220 s vp-drywetmix-value-mix-r;
+#X obj 974 64 declare -path ../vp-base;
+#X obj 974 87 declare -path ../vp-modules;
+#X connect 2 0 33 0;
+#X connect 15 0 32 0;
+#X connect 16 0 37 0;
+#X connect 17 0 38 0;
+#X connect 18 0 40 0;
+#X connect 19 0 15 0;
+#X connect 20 0 17 0;
+#X connect 21 0 18 0;
+#X connect 22 0 35 0;
+#X connect 23 0 22 0;
+#X connect 28 0 16 0;
+#X connect 32 0 33 1;
+#X connect 33 0 34 0;
+#X connect 34 0 36 0;
+#X connect 34 0 39 0;
+#X connect 36 0 39 1;
+#X connect 39 0 3 0;
+#X coords 0 -1 1 1 200 140 2 10 12;

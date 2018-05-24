@@ -1,0 +1,6 @@
+[submodule "vp-base"]
+	path = vp-base
+	url = https://github.com/bfabricius/vp-base.git
+[submodule "vp-modules"]
+	path = vp-modules
+	url = https://github.com/bfabricius/vp-modules.git

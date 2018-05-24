@@ -1,0 +1,43 @@
+#N canvas 102 215 933 309 10;
+#X declare -path ../vp_base;
+#X obj 146 23 cnv 5 5 5 empty empty FOOAUDIO 0 0 0 12 -262144 -66577
+0;
+#X obj 151 34 cnv 5 5 5 empty empty htaudio.de 0 0 0 8 -262144 -1 0
+;
+#X obj 12 176 inlet~;
+#X obj 12 266 outlet~;
+#X obj 15 22 cnv 5 5 5 empty empty IN 0 0 0 8 -262144 -1 0;
+#X obj 16 125 cnv 5 5 5 empty empty OUT 0 0 0 8 -262144 -1 0;
+#X obj 703 42 declare -path ../vp_base;
+#X text 68 266 AUDIO OUT;
+#X text 13 148 DSP CIRCUIT;
+#X text 700 17 DO NOT DELETE OR CHANGE THESE PARTS;
+#X text 700 4 Include paths;
+#X text 224 17 Input Parameter Processing;
+#X text 59 175 AUDIO IN;
+#X obj 25 44 hsl 128 15 0 1 0 0 \$0-foo-value-a-s \$0-foo-value-a-r
+VALUE_A 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 25 59 hsl 128 15 0 1 0 0 \$0-foo-value-b-s \$0-foo-value-a-r
+VALUE_B 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 25 74 hsl 128 15 0 1 0 0 \$0-foo-value-c-s \$0-foo-value-c-r
+VALUE_C 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 25 89 hsl 128 15 0 1 0 0 \$0-foo-value-d-s \$0-foo-value-d-s
+VALUE_D 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 225 69 r \$0-foo-value-a-s;
+#X floatatom 225 91 5 0 0 0 - - -, f 5;
+#X floatatom 341 91 5 0 0 0 - - -, f 5;
+#X floatatom 457 91 5 0 0 0 - - -, f 5;
+#X floatatom 573 91 5 0 0 0 - - -, f 5;
+#X obj 341 69 r \$0-foo-value-b-s;
+#X obj 457 69 r \$0-foo-value-c-s;
+#X obj 573 69 r \$0-foo-value-d-s;
+#X text 224 43 A;
+#X text 346 43 B;
+#X text 464 43 C;
+#X text 577 43 D;
+#X connect 2 0 3 0;
+#X connect 17 0 18 0;
+#X connect 22 0 19 0;
+#X connect 23 0 20 0;
+#X connect 24 0 21 0;
+#X coords 0 -1 1 1 200 120 2 10 12;

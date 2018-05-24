@@ -1,0 +1,75 @@
+#N canvas 550 503 1223 537 10;
+#X declare -path ../vp_base;
+#X obj 338 23 cnv 5 5 5 empty empty OSCINOUT 0 0 0 12 -262144 -66577
+0;
+#X obj 345 34 cnv 5 5 5 empty empty htaudio.de 0 0 0 8 -262144 -1 0
+;
+#X obj 10 232 inlet~;
+#X obj 10 472 outlet~;
+#X obj 15 22 cnv 5 5 5 empty empty IN 0 0 0 8 -262144 -1 0;
+#X obj 16 154 cnv 5 5 5 empty empty OUT 0 0 0 8 -262144 -1 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-scope-in 512 float 0;
+#X coords 0 1 511 -1 100 60 1 0 0;
+#X restore 18 65 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-scope-out 512 float 0;
+#X coords 0 1 511 -1 100 60 1 0 0;
+#X restore 301 65 graph;
+#X obj 916 117 loadbang;
+#X msg 916 139 1;
+#X obj 910 188 tabwrite~ \$0-scope-in;
+#X obj 1049 188 tabwrite~ \$0-scope-out;
+#X obj 9 213 s~ \$0-audio-in-sig;
+#X obj 910 87 r~ \$0-audio-in-sig;
+#X obj 915 161 metro 50;
+#X obj 1041 56 declare -path ../vp_base;
+#X obj 198 212 r pd-dsp-stopped;
+#X obj 307 212 r pd-dsp-started;
+#X msg 198 234 0;
+#X msg 307 234 1;
+#X text 421 12 Input Parameter Processing;
+#X text 915 31 DO NOT DELETE OR CHANGE THESE PARTS;
+#X text 915 18 Oscis and include paths;
+#X obj 144 65 hsl 128 15 0 1 0 0 \$0-foo-value-a-s \$0-foo-value-a-r
+VALUE_A 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 144 80 hsl 128 15 0 1 0 0 \$0-foo-value-b-s \$0-foo-value-a-r
+VALUE_B 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 144 95 hsl 128 15 0 1 0 0 \$0-foo-value-c-s \$0-foo-value-c-r
+VALUE_C 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 144 110 hsl 128 15 0 1 0 0 \$0-foo-value-d-s \$0-foo-value-d-s
+VALUE_D 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 10 492 s~ \$0-audio-out-sig;
+#X obj 1048 87 r~ \$0-audio-out-sig;
+#X obj 420 69 r \$0-foo-value-a-s;
+#X floatatom 420 91 5 0 0 0 - - -, f 5;
+#X floatatom 536 91 5 0 0 0 - - -, f 5;
+#X floatatom 652 91 5 0 0 0 - - -, f 5;
+#X floatatom 768 91 5 0 0 0 - - -, f 5;
+#X obj 536 69 r \$0-foo-value-b-s;
+#X obj 652 69 r \$0-foo-value-c-s;
+#X obj 768 69 r \$0-foo-value-d-s;
+#X text 11 174 DSP CIRCUIT;
+#X text 57 232 AUDIO IN;
+#X text 64 472 AUDIO OUT;
+#X text 419 43 A;
+#X text 541 43 B;
+#X text 659 43 C;
+#X text 772 43 D;
+#X connect 2 0 12 0;
+#X connect 2 0 3 0;
+#X connect 2 0 27 0;
+#X connect 8 0 9 0;
+#X connect 9 0 14 0;
+#X connect 13 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 10 0;
+#X connect 14 0 11 0;
+#X connect 16 0 18 0;
+#X connect 17 0 19 0;
+#X connect 28 0 11 0;
+#X connect 29 0 30 0;
+#X connect 34 0 31 0;
+#X connect 35 0 32 0;
+#X connect 36 0 33 0;
+#X coords 0 -1 1 1 400 150 2 10 12;

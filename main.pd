@@ -1,0 +1,584 @@
+#N canvas 120 84 975 796 10;
+#X declare -path vp_templates;
+#X declare -path vp_fx;
+#X declare -path vp-base;
+#X declare -path vp-modules;
+#X text 5 672 DO NOT DELETE THESE OBJECTS:;
+#N canvas 408 28 564 101 library-manager 0;
+#N canvas 76 179 677 148 menu-handler 0;
+#X msg 13 62 1;
+#X msg 132 62 1;
+#X obj 132 40 r open-modules!;
+#X msg 132 84 \; pd-modules vis \$1;
+#N canvas 959 92 436 437 modules 0;
+#X obj 221 51 cnv 15 180 15 empty empty MODULATION: 10 8 0 12 -99865
+-262144 0;
+#X obj 221 72 bng 15 250 50 0 \$0-create-basic-lfo! empty <--BASIC-LFO
+17 7 0 10 -262144 -1 -1;
+#X obj 28 51 cnv 15 180 15 empty empty DISTORTION: 10 8 0 12 -99865
+-262144 0;
+#X obj 16 8 cnv 15 400 30 empty empty VANILLA-PROCESSORS-MODULES 100
+12 0 14 -99865 -262144 0;
+#X obj 31 280 cnv 15 180 15 empty empty RATE/CLOCKS: 10 8 0 12 -99865
+-262144 0;
+#X obj 220 350 cnv 15 180 15 empty empty SCOPES: 10 8 0 12 -99865 -262144
+0;
+#X obj 221 252 cnv 15 180 15 empty empty MIXERS: 10 8 0 12 -99865 -262144
+0;
+#X obj 221 272 bng 15 250 50 0 \$0-create-drywetmix! empty <--DRYWETMIX
+17 7 0 10 -262144 -1 -1;
+#X obj 32 303 bng 15 250 50 0 \$0-create-vp-clockwerk! empty <--CLOCKWERK
+17 7 0 10 -262144 -1 -1;
+#X obj 31 76 bng 15 250 50 0 \$0-create-vp-smpredux! empty <--SAMPLE-REDUX
+17 7 0 10 -262144 -1 -1;
+#X obj 220 390 bng 15 250 50 0 \$0-create-vp-pcycik! empty <--PCYKIK_(3rdParty)
+17 7 0 10 -262144 -1 -1;
+#X obj 220 370 bng 15 250 50 0 \$0-create-vp-sidekik! empty <--SIDEKIK
+17 7 0 10 -262144 -1 -1;
+#X obj 31 96 bng 15 250 50 0 \$0-create-vp-5bitcrush! empty <--5BITCRUSH
+17 7 0 10 -262144 -1 -1;
+#X restore 131 18 pd modules;
+#N canvas 866 399 434 436 base 0;
+#X obj 216 51 cnv 15 180 15 empty empty RATE/CLOCK 10 8 0 12 -99865
+-262144 0;
+#X obj 28 51 cnv 15 180 15 empty empty NUMBERS 10 8 0 12 -99865 -262144
+0;
+#X obj 16 8 cnv 15 400 30 empty empty VANILLA-PROCESSORS-BASE-ELEMENTS
+70 12 0 14 -99865 -262144 0;
+#X obj 31 280 cnv 15 180 15 empty empty SYSTEM 10 8 0 12 -99865 -262144
+0;
+#X obj 220 377 cnv 15 180 15 empty empty SCOPES: 10 8 0 12 -99865 -262144
+0;
+#X obj 221 279 cnv 15 180 15 empty empty SEQUENCERS: 10 8 0 12 -99865
+-262144 0;
+#X obj 221 299 bng 15 250 50 0 \$0-create-8steps! empty <--8STEPS 17
+7 0 10 -262144 -1 -1;
+#X obj 32 303 bng 15 250 50 0 \$0-create-vp-sr! empty <--SR 17 7 0
+10 -262144 -1 -1;
+#X obj 31 76 bng 15 250 50 0 \$0-create-vp-fbounds! empty <--FBOUNDS
+17 7 0 10 -262144 -1 -1;
+#X obj 31 97 bng 15 250 50 0 \$0-create-vp-ftointwrap! empty <--FTOINTWRAP
+17 7 0 10 -262144 -1 -1;
+#X obj 221 76 bng 15 250 50 0 \$0-create-vp-sr-div! empty <--SR-DIV
+17 7 0 10 -262144 -1 -1;
+#X obj 31 118 bng 15 250 50 0 \$0-create-vp-normtorange! empty <--NORMTORANGE
+17 7 0 10 -262144 -1 -1;
+#X restore 13 18 pd base;
+#X obj 13 40 r open-base!;
+#X msg 13 84 \; pd-base vis \$1;
+#X msg 272 62 1;
+#X msg 272 84 \; pd-fx vis \$1;
+#X obj 272 40 r open-fx!;
+#N canvas 985 126 436 437 fx 0;
+#X obj 221 51 cnv 15 180 15 empty empty MODULATION: 10 8 0 12 -99865
+-262144 0;
+#X obj 28 51 cnv 15 180 15 empty empty DISTORTION: 10 8 0 12 -99865
+-262144 0;
+#X obj 16 8 cnv 15 400 30 empty empty VANILLA-PROCESSORS-MODULES 100
+12 0 14 -99865 -262144 0;
+#X obj 31 280 cnv 15 180 15 empty empty RATE/CLOCKS: 10 8 0 12 -99865
+-262144 0;
+#X obj 220 350 cnv 15 180 15 empty empty SCOPES: 10 8 0 12 -99865 -262144
+0;
+#X obj 221 252 cnv 15 180 15 empty empty MIXERS: 10 8 0 12 -99865 -262144
+0;
+#X obj 31 76 bng 15 250 50 0 \$0-create-bitcrusher! empty <--BITCRUSHER
+17 7 0 10 -262144 -1 -1;
+#X restore 271 18 pd fx;
+#N canvas 792 529 450 176 license-text 0;
+#X text 20 13 Copyright ©  2018 \, Benjamin Fabricius \, Vanilla
+Processors is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation \, either version 3 of the License \,
+or any later version. This program is distributed in the hope that
+it will be useful \, but WITHOUT ANY WARRANTY \; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
+the GNU General Public License for more details.;
+#X restore 374 16 pd license-text;
+#X msg 374 61 1;
+#X msg 374 83 \; pd-license-text vis \$1;
+#X obj 374 39 r open-license-txt!;
+#X connect 0 0 7 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 6 0 0 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 13 0 14 0;
+#X connect 15 0 13 0;
+#X restore 11 14 pd menu-handler;
+#N canvas 1217 25 281 41 modules-scopes 0;
+#N canvas 1471 550 282 443 open-pcykik 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X obj 14 399 s pd-vp-pcycik.pd;
+#X obj 14 15 r \$0-create-vp-pcycik!;
+#X msg 41 204 vp-pcycik;
+#X msg 79 153 \; pd-modules vis 0;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 2 1 3 0;
+#X connect 4 0 9 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X restore 6 10 pd open-pcykik;
+#N canvas 1063 107 282 443 open-sidekik 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 14 15 r \$0-create-vp-sidekik!;
+#X obj 14 399 s pd-vp-sidekik.pd;
+#X obj 41 236 pack s;
+#X msg 41 204 vp-sidekik;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-modules vis 0;
+#X connect 0 0 1 0;
+#X connect 0 0 11 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 2 1 3 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 6 0 0 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 11 0 5 0;
+#X connect 11 1 9 0;
+#X restore 104 10 pd open-sidekik;
+#X restore 228 14 pd modules-scopes;
+#N canvas 869 27 281 41 base-system 0;
+#N canvas 1053 217 261 457 open-sr 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-base vis 0;
+#X obj 14 15 r \$0-create-vp-sr!;
+#X msg 41 204 vp-sr;
+#X obj 14 399 s pd-vp-sr.pd;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X restore 7 14 pd open-sr;
+#X restore 111 14 pd base-system;
+#N canvas 867 101 553 49 base-numbers 0;
+#N canvas 1131 548 261 457 open-fbounds 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X obj 14 15 r \$0-create-vp-fbounds!;
+#X obj 14 399 s pd-vp-fbounds.pd;
+#X msg 41 204 vp-fbounds;
+#X msg 79 153 \; pd-base vis 0;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 2 1 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 9 0 0 0;
+#X connect 11 0 6 0;
+#X restore 7 14 pd open-fbounds;
+#N canvas 1023 167 261 457 open-ftointwrap 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-base vis 0;
+#X obj 14 15 r \$0-create-vp-ftointwrap!;
+#X msg 41 204 vp-ftointwrap;
+#X obj 14 399 s pd-vp-ftointwrap.pd;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X restore 111 14 pd open-ftointwrap;
+#N canvas 777 244 261 457 open-normtorange 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-base vis 0;
+#X obj 14 399 s pd-vp-normtorange.pd;
+#X msg 41 204 vp-normtorange;
+#X obj 14 15 r \$0-create-vp-normtorange!;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 11 0 6 0;
+#X connect 12 0 0 0;
+#X restore 231 14 pd open-normtorange;
+#X restore 11 38 pd base-numbers;
+#N canvas 867 101 553 49 base-rate-clock 0;
+#N canvas 913 272 261 457 open-sr-div 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-base vis 0;
+#X obj 14 15 r \$0-create-vp-sr-div!;
+#X msg 41 204 vp-sr-div;
+#X obj 14 399 s pd-vp-sr-div.pd;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X restore 7 14 pd open-sr-div;
+#X restore 111 38 pd base-rate-clock;
+#N canvas 830 28 281 41 modules-distortion 0;
+#N canvas 100 387 282 443 open-smpredux 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-modules vis 0;
+#X obj 14 15 r \$0-create-vp-smpredux!;
+#X obj 14 399 s pd-vp-smpredux.pd;
+#X msg 41 204 vp-smpredux;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 11 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 12 0;
+#X connect 10 0 0 0;
+#X connect 12 0 6 0;
+#X restore 6 10 pd open-smpredux;
+#N canvas 1249 329 289 451 open-5bitcrush 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-modules vis 0;
+#X obj 14 15 r \$0-create-vp-5bitcrush!;
+#X obj 14 399 s pd-vp-5bit-crush.pd;
+#X msg 41 204 vp-5bit-crush;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 11 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 12 0;
+#X connect 10 0 0 0;
+#X connect 12 0 6 0;
+#X restore 111 10 pd open-5bitcrush;
+#X restore 228 38 pd modules-distortion;
+#N canvas 115 29 281 41 modules-clocks 0;
+#N canvas 590 264 282 443 open-clockwerk 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-modules vis 0;
+#X obj 14 15 r \$0-create-vp-clockwerk!;
+#X msg 41 204 vp-clockwerk;
+#X obj 14 399 s pd-vp-clockwerk.pd;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X restore 6 10 pd open-clockwerk;
+#X restore 11 62 pd modules-clocks;
+#N canvas 1119 30 293 54 modules-mixers 0;
+#N canvas 1351 41 282 425 open-drywetmix 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X msg 79 153 \; pd-modules vis 0;
+#X obj 14 15 r \$0-create-drywetmix!;
+#X msg 41 204 vp-drywetmix;
+#X obj 14 399 s pd-vp-drywetmix.pd;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 10 0 0 0;
+#X connect 11 0 6 0;
+#X restore 9 13 pd open-drywetmix;
+#X restore 229 61 pd modules-mixers;
+#N canvas 987 37 303 59 fx-distortion 0;
+#N canvas 849 359 263 431 open-bitcrusher 0;
+#X msg 14 44 bang;
+#X obj 79 61 delay 250;
+#X obj 79 83 t b b;
+#X msg 106 113 \; pd-main.pd editmode 1;
+#X msg 14 366 loadbang;
+#X obj 14 339 delay 100;
+#X obj 41 236 pack s;
+#X msg 41 261 \; pd-main.pd obj 100 200 \$1;
+#X obj 14 111 t b b;
+#X obj 14 15 r \$0-create-bitcrusher!;
+#X obj 14 399 s pd-vp-bitcrusher.pd;
+#X msg 41 204 vp-bitcrusher;
+#X msg 79 153 \; pd-fx vis 0;
+#X connect 0 0 1 0;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 2 1 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 11 0;
+#X connect 9 0 0 0;
+#X connect 11 0 6 0;
+#X restore 13 16 pd open-bitcrusher;
+#X restore 388 13 pd fx-distortion;
+#X restore 7 773 pd library-manager;
+#X obj 10 4 cnv 5 198 22 empty empty VANILLA-PROCESSORS_1.0 0 12 0
+15 -99865 -262144 0;
+#X obj 10 57 bng 15 250 50 0 open-base! empty <--BASE-ELEMENTS 17 7
+0 10 -262144 -1 -1;
+#X obj 10 30 cnv 5 5 5 empty empty MAIN-MENU 0 12 0 14 -262144 -66577
+0;
+#X obj 10 76 bng 15 250 50 0 open-modules! empty <--MODULES 17 7 0
+10 -262144 -1 -1;
+#N canvas 1516 99 388 54 UI 0;
+#N canvas 1459 177 450 300 sliders-normalised 0;
+#X obj 19 47 hsl 128 15 0 1 0 0 \$0-basic-osc-XXX-s \$0-basic-osc-XXX-r
+VALUE_XXX 140 7 0 10 -262144 -1 -1 0 1;
+#X obj 10 7 cnv 15 250 30 empty empty INPUTS(NORMALISED) 20 12 0 14
+-99865 -262144 0;
+#X obj 19 71 hsl 128 15 0 1 0 0 \$0-basic-osc-XXX-s \$0-basic-osc-XXX-r
+VALUE_XXX 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 19 107 hsl 128 15 0 1 0 0 \$0-basic-osc-XXX-s \$0-basic-osc-XXX-r
+VALUE_XXX 2 -8 0 10 -262144 -1 -1 0 1;
+#X restore 12 17 pd sliders-normalised;
+#X restore 192 716 pd UI;
+#X text 191 671 YOU CAN FIND SOME USEFUL ELEMENTS IN THE ABSTRACTIONS
+BELOW:, f 28;
+#N canvas 1302 56 453 275 module-templates 0;
+#N canvas 1030 437 693 380 foo-module 0;
+#X obj 141 23 cnv 5 5 5 empty empty FOOMODULE 0 0 0 12 -262144 -66577
+0;
+#X obj 153 34 cnv 5 5 5 empty empty htaudio.de 0 0 0 8 -262144 -1 0
+;
+#X obj 19 50 hsl 128 15 0 1 0 0 \$0-foo-value-a-s \$0-foo-value-a-r
+VALUE_A 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 19 65 hsl 128 15 0 1 0 0 \$0-foo-value-b-s \$0-foo-value-a-r
+VALUE_B 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 19 80 hsl 128 15 0 1 0 0 \$0-foo-value-c-s \$0-foo-value-c-r
+VALUE_C 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 19 95 hsl 128 15 0 1 0 0 \$0-foo-value-d-s \$0-foo-value-d-s
+VALUE_D 10 8 0 10 -262144 -1 -1 0 1;
+#X obj 10 182 inlet~;
+#X obj 10 292 outlet~;
+#X obj 222 14 r \$0-foo-value-a-s;
+#X floatatom 222 36 5 0 0 0 - - -, f 5;
+#X floatatom 338 36 5 0 0 0 - - -, f 5;
+#X floatatom 454 36 5 0 0 0 - - -, f 5;
+#X floatatom 570 36 5 0 0 0 - - -, f 5;
+#X obj 338 14 r \$0-foo-value-b-s;
+#X obj 454 14 r \$0-foo-value-c-s;
+#X obj 570 14 r \$0-foo-value-d-s;
+#X obj 15 22 cnv 5 5 5 empty empty IN 0 0 0 8 -262144 -1 0;
+#X obj 16 154 cnv 5 5 5 empty empty OUT 0 0 0 8 -262144 -1 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 13 0 10 0;
+#X connect 14 0 11 0;
+#X connect 15 0 12 0;
+#X coords 0 -1 1 1 200 150 2 10 12;
+#X restore 14 17 pd foo-module;
+#X restore 191 741 pd module-templates;
+#X obj 718 672 cnv 15 250 35 empty empty empty 15 10 0 10 -233017 -66577
+0;
+#X text 722 687 Happy Thoughts Audio - htaudio.de;
+#X obj 871 718 bng 15 250 50 0 open-license-txt! empty empty 17 7 0
+10 -262144 -1 -1;
+#X obj 887 718 bng 15 250 50 0 open-license-txt! empty empty 17 7 0
+10 -262144 -1 -1;
+#X obj 903 718 bng 15 250 50 0 open-license-txt! empty empty 17 7 0
+10 -262144 -1 -1;
+#X obj 917 718 bng 15 250 50 0 open-license-txt! empty empty 17 7 0
+10 -262144 -1 -1;
+#X obj 868 713 cnv 15 100 20 empty empty License-Text 15 10 0 10 -233017
+-66577 0;
+#X text 372 671 OPEN TEMPLATES, f 28;
+#N canvas 542 103 955 266 open-templates 0;
+#X msg 24 208 \; pd open vp-foo-main-audio.pd \$1;
+#X obj 24 141 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 24 160 symbol /Users/bfabricius/Documents/source/vanilla-processors/pd-lib/vanilla-processors-pd/vp_templates
+;
+#X obj 20 17 cnv 15 400 30 empty empty OPEN_TEMPLATES 20 12 0 14 -99865
+-262144 0;
+#X text 22 101 NOTE: REPLACE THE PATHS HERE WITH YOUR LOCAL ABSOLUTE
+PATHS TO VP_TEMPLATES FOLDER FOR THIS TO WORK.;
+#X text 23 56 Helper Abstraction to quickly open template modules from
+pd editor and then saving them as new ones. Useful for developing your
+own modules.;
+#X obj 394 141 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 160 symbol /Users/bfabricius/Documents/source/vanilla-processors/pd-lib/vanilla-processors-pd/vp_templates
+;
+#X msg 394 208 \; pd open vp-foo-audio-oscinout.pd \$1;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X restore 373 716 pd open-templates;
+#X obj 44 215 adc~;
+#X obj 47 580 dac~;
+#X obj 82 215 osc~ 440;
+#X floatatom 82 196 5 0 0 0 - - -, f 5;
+#X floatatom 142 197 5 0 0 0 - - -, f 5;
+#X obj 142 216 osc~ 880;
+#X obj 7 751 declare -path vp_templates;
+#X obj 7 730 declare -path vp_fx;
+#X obj 10 95 bng 15 250 50 0 open-fx! empty <--FX 17 7 0 10 -262144
+-1 -1;
+#X obj 44 327 vp-bitcrusher;
+#X obj 94 485 vp-sidekik;
+#X obj 222 217 unpack 0 0 0;
+#X msg 222 181 1 0 0;
+#X msg 272 181 0 1 0;
+#X obj 44 242 *~;
+#X obj 82 262 *~;
+#X obj 142 282 *~;
+#X msg 322 181 0 0 1;
+#X text 722 672 Copyright © 2018 \, Benjamin Fabricius;
+#X msg 372 181 0 0 0;
+#X obj 8 690 declare -path vp-base;
+#X obj 7 710 declare -path vp-modules;
+#X connect 18 0 32 0;
+#X connect 20 0 33 0;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 34 0;
+#X connect 27 0 19 0;
+#X connect 27 0 28 0;
+#X connect 27 0 19 1;
+#X connect 29 0 32 1;
+#X connect 29 1 33 1;
+#X connect 29 2 34 1;
+#X connect 30 0 29 0;
+#X connect 31 0 29 0;
+#X connect 32 0 27 0;
+#X connect 33 0 27 0;
+#X connect 34 0 27 0;
+#X connect 35 0 29 0;
+#X connect 37 0 29 0;

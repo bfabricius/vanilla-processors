@@ -1,4 +1,4 @@
-#N canvas 120 84 975 796 10;
+#N canvas 109 115 975 796 10;
 #X declare -path vp_templates;
 #X declare -path vp_fx;
 #X declare -path vp-base;
@@ -564,6 +564,7 @@ own modules.;
 #X msg 372 181 0 0 0;
 #X obj 8 690 declare -path vp-base;
 #X obj 7 710 declare -path vp-modules;
+#X obj 372 160 loadbang;
 #X connect 18 0 32 0;
 #X connect 20 0 33 0;
 #X connect 21 0 20 0;
@@ -582,3 +583,4 @@ own modules.;
 #X connect 34 0 27 0;
 #X connect 35 0 29 0;
 #X connect 37 0 29 0;
+#X connect 40 0 37 0;

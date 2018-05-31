@@ -1,4 +1,4 @@
-#N canvas 109 115 975 796 10;
+#N canvas 221 161 975 796 10;
 #X declare -path vp_templates;
 #X declare -path vp_fx;
 #X declare -path vp-base;

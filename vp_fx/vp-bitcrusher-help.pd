@@ -1,0 +1,33 @@
+#N canvas 633 203 662 413 10;
+#X declare -path ../vp-base;
+#X declare -path ../vp-modules;
+#X obj 24 278 cnv 15 400 30 empty empty OUTPUTS 20 12 0 14 -99865 -262144
+0;
+#X obj 24 111 cnv 15 400 30 empty empty CONTROLS 20 12 0 14 -99865
+-262144 0;
+#X obj 24 220 cnv 15 400 30 empty empty INPUTS 20 12 0 14 -99865 -262144
+0;
+#X obj 20 17 cnv 15 400 30 empty empty BITCRUSHER 20 12 0 14 -99865
+-262144 0;
+#X obj 443 17 adc~;
+#X text 24 49 Bitcrusher is a digital harmonic distortion effect. It
+uses sample rate reduction and bitcrushing to achieve the overall effect.
+;
+#X text 25 146 DRIVE: Input gain;
+#X text 25 158 SAMPLE_RATE: Control the sample rate from lo -> hi rates
+, f 65;
+#X text 25 170 REDUX: Amount of bitcrushing, f 65;
+#X text 26 184 DRY_WET_MIX: Mix the sample rate reduced signal with
+the bitcrused signal before outputting sum, f 53;
+#X text 24 253 IN - mono audio in;
+#X text 24 316 OUT - mono audio out;
+#X obj 443 53 vp-bitcrusher;
+#X obj 26 339 declare -path ../vp-base;
+#X obj 26 362 declare -path ../vp-modules;
+#X obj 443 222 vp-sidekik;
+#X msg 443 346 \; pd dsp 1;
+#X msg 536 346 \; pd dsp 0;
+#X text 448 383 DSP ON;
+#X text 539 383 DSP OFF;
+#X connect 4 0 12 0;
+#X connect 12 0 15 0;

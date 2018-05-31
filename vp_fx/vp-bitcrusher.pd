@@ -1,4 +1,4 @@
-#N canvas 587 63 1208 846 10;
+#N canvas 587 63 957 805 10;
 #X declare -path ../vp-base;
 #X declare -path ../vp-modules;
 #X obj 131 23 cnv 5 5 5 empty empty BITCRUSHER 0 0 0 12 -262144 -66577
